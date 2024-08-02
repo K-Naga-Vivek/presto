@@ -95,4 +95,64 @@ public class OracleConfig
         this.timestampDefaultPrecision = timestampDefaultPrecision;
         return this;
     }
+
+    public boolean isTlsEnabled()
+    {
+        return tlsEnabled;
+    }
+
+    @Config("oracle.tls.enabled")
+    public OracleConfig setTlsEnabled(boolean tlsEnabled)
+    {
+        this.tlsEnabled = tlsEnabled;
+        return this;
+    }
+
+    public String getKeystorePath()
+    {
+        return keystorePath;
+    }
+
+    @Config("oracle.tls.keystore-path")
+    public OracleConfig setKeystorePath(String path)
+    {
+        this.keystorePath = path;
+        return this;
+    }
+
+    public String getTrustStorePath()
+    {
+        return trustStorePath;
+    }
+
+    @Config("oracle.tls.truststore-path")
+    public OracleConfig setTrustStorePath(String path)
+    {
+        this.trustStorePath = path;
+        return this;
+    }
+
+    public String getKeystorePassword()
+    {
+        return keystorePassword;
+    }
+
+    @Config("oracle.tls.keystore-password")
+    public OracleConfig setKeystorePassword(String password)
+    {
+        this.keystorePassword = password;
+        return this;
+    }
+
+    public String getTruststorePassword()
+    {
+        return truststorePassword;
+    }
+
+    @Config("oracle.tls.truststore-password")
+    public OracleConfig setTruststorePassword(String password)
+    {
+        this.truststorePassword = password;
+        return this;
+    }
 }

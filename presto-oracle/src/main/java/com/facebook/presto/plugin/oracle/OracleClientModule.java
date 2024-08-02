@@ -49,6 +49,12 @@ public class OracleClientModule
             throws SQLException
     {
         Properties connectionProperties = new Properties();
+        if (oracleConfig.getTrustStorePath() != null) {
+            connectionProperties.setProperty("javax.net.ssl.trustStore", oracleConfig.getTrustStorePath());
+        }
+        if (oracleConfig.getTruststorePassword() != null) {
+            connectionProperties.setProperty("javax.net.ssl.trustStorePassword", oracleConfig.getTruststorePassword());
+        }
         connectionProperties.setProperty(OracleConnection.CONNECTION_PROPERTY_INCLUDE_SYNONYMS, String.valueOf(oracleConfig.isSynonymsEnabled()));
 
         return new DriverConnectionFactory(
